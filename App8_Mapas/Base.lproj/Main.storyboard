@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,25 +16,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="axp-wZ-b8o">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <animations/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="axp-wZ-b8o">
+                                <rect key="frame" x="0.0" y="65" width="320" height="421"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zOe-0g-BhA"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epO-JR-Sbb">
+                                <rect key="frame" x="0.0" y="530" width="320" height="38"/>
+                                <color key="backgroundColor" red="0.4989846932" green="0.78669197619999998" blue="0.80489309210000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                <state key="normal" title="Mi Ubicación">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMapBTN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Yn-ZV-WJj"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vva-V9-Hwz">
+                                <rect key="frame" x="20" y="29" width="280" height="29"/>
+                                <segments>
+                                    <segment title="Map"/>
+                                    <segment title="Hybrid"/>
+                                    <segment title="Satellite"/>
+                                </segments>
+                                <connections>
+                                    <action selector="myTypeChenged:" destination="BYZ-38-t0r" eventType="valueChanged" id="eIa-ic-lGg"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvX-bx-dWp">
+                                <rect key="frame" x="0.0" y="486" width="320" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="axp-wZ-b8o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="KoV-Tq-SlK"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="axp-wZ-b8o" secondAttribute="bottom" id="QTD-QA-Aeg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="axp-wZ-b8o" secondAttribute="trailing" constant="-20" id="qYE-Tj-2eu"/>
-                            <constraint firstItem="axp-wZ-b8o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="zaa-jp-bb8"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="myFirstMap" destination="axp-wZ-b8o" id="Efw-ha-Fh5"/>
+                        <outlet property="myLabel" destination="SvX-bx-dWp" id="PKM-eb-gHk"/>
+                        <outlet property="mySegmentControlSC" destination="vva-V9-Hwz" id="fFs-Iw-vs1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
